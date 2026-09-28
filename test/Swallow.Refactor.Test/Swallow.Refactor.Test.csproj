@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Swallow.Refactor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console.Cli" />
+    <PackageReference Include="Spectre.Console.Testing" />
+    <PackageReference Include="coverlet.msbuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk"  />
+    <PackageReference Include="NUnit"  />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="NUnit.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Swallow.Refactor.Core\Swallow.Refactor.Core.csproj" />
+    <ProjectReference Include="..\..\src\Swallow.Refactor.Execution\Swallow.Refactor.Execution.csproj" />
+    <ProjectReference Include="..\..\src\Swallow.Refactor.Testing\Swallow.Refactor.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Swallow.Refactor\Swallow.Refactor.csproj" />
+  </ItemGroup>
+</Project>

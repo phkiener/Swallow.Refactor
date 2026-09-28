@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="Spectre.Console.Cli" />
+    <PackageReference Include="Spectre.Console.Testing" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Swallow.Refactor.Abstractions\Swallow.Refactor.Abstractions.csproj" />
+    <ProjectReference Include="..\Swallow.Refactor.Execution\Swallow.Refactor.Execution.csproj" />
+  </ItemGroup>
+</Project>

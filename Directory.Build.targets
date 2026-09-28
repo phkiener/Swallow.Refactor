@@ -1,2 +1,8 @@
 <Project>
+  <!-- Microsoft.CodeAnalysis.Workspaces.MSBuild ships the compiler itself - we don't want to display these files in an IDE. -->
+  <ItemGroup>
+    <Content Update="@(Content)">
+      <Visible Condition="%(NuGetPackageId) == 'Microsoft.CodeAnalysis.Workspaces.MSBuild'">false</Visible>
+    </Content>
+  </ItemGroup>
 </Project>

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>brrr</ToolCommandName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Tasks.Core" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Cli" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Swallow.Refactor.Abstractions\Swallow.Refactor.Abstractions.csproj" />
+    <ProjectReference Include="..\Swallow.Refactor.Core\Swallow.Refactor.Core.csproj" />
+    <ProjectReference Include="..\Swallow.Refactor.Execution\Swallow.Refactor.Execution.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="$(Configuration) == 'Release'">
+    <Compile Remove="Commands/Interactive/**/*.cs" />
+  </ItemGroup>
+</Project>

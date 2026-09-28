@@ -21,4 +21,10 @@
     <File Path=".github/workflows/build.yaml" />
     <File Path=".github/workflows/publish.yaml" />
   </Folder>
+  <Project Path="src/Swallow.Refactor/Swallow.Refactor.csproj" />
+  <Project Path="src/Swallow.Refactor.Abstractions/Swallow.Refactor.Abstractions.csproj" />
+  <Project Path="src/Swallow.Refactor.Core/Swallow.Refactor.Core.csproj" />
+  <Project Path="src/Swallow.Refactor.Execution/Swallow.Refactor.Execution.csproj" />
+  <Project Path="src/Swallow.Refactor.Testing/Swallow.Refactor.Testing.csproj" />
+  <Project Path="test/Swallow.Refactor.Test/Swallow.Refactor.Test.csproj" />
 </Solution>

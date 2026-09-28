@@ -4,7 +4,6 @@ on:
     types: [created]
 
 env:
-  # TODO: Set this to true if you need a workload
   RESTORE_WORKLOAD: false
 
 jobs:

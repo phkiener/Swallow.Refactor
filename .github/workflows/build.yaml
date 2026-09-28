@@ -8,8 +8,6 @@ on:
       - main
 
 env:
-  # TODO: Set this to true if you need a workload
-  # If you do, also add workloadVersion to global.json
   RESTORE_WORKLOAD: false
 
 jobs:

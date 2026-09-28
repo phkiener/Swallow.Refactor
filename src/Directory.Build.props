@@ -13,19 +13,22 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Package metadata">
-    <PackageTags>swallow</PackageTags> <!-- TODO: Fill in information -->
-    <Description></Description> <!-- TODO: Fill in information -->
+    <PackageTags>swallow;tool;cli;refactor;roslyn;solution;extendable;hackable;plugins</PackageTags>
+    <Description>
+      A tool to automatically refactor large swaths of code - the natural continuation of "doing it all by hand" and "tinkering with regexes".
+      You can define a rewriting process and have it executed on many files in a solution - repeatable, testable, predictable.
+    </Description>
 
     <Authors>Philipp Kiener</Authors>
-    <Copyright>2026 Philipp Kiener</Copyright> <!-- TODO: Fill in information -->
-    <PackageProjectUrl>https://github.com/phkiener/Swallow.Template</PackageProjectUrl> <!-- TODO: Fill in information -->
+    <Copyright>2023-2026 Philipp Kiener, 2023 Digitec Galaxus AG</Copyright>
+    <PackageProjectUrl>https://github.com/phkiener/Swallow.Refactor</PackageProjectUrl>
 
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/phkiener/Swallow.Template</RepositoryUrl> <!-- TODO: Fill in information -->
+    <RepositoryUrl>https://github.com/phkiener/Swallow.Refactor</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 

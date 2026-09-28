@@ -53,7 +53,7 @@ public abstract class BaseCommand<TSettings> : AsyncCommand<TSettings> where TSe
     /// </summary>
     protected CancellationToken CancellationToken { get; private set; }
 
-    public sealed override async Task<int> ExecuteAsync(CommandContext context, TSettings settings, CancellationToken cancellationToken)
+    protected sealed override async Task<int> ExecuteAsync(CommandContext context, TSettings settings, CancellationToken cancellationToken)
     {
         FeatureCollection = context.Data as IFeatureCollection ?? new NullFeatureCollection();
         CancellationToken = cancellationToken;

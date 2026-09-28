@@ -72,7 +72,7 @@ public abstract class CommandTest<TCommand, TSettings> : RoslynTest
     protected async Task RunCommand(TSettings settings)
     {
         var context = new CommandContext([], new NoRemainingArguments(), typeof(TCommand).Name, data: Features);
-        await Command.ExecuteAsync(context, settings, CancellationToken.None);
+        await (Command as ICommand<TSettings>).ExecuteAsync(context, settings, CancellationToken.None);
     }
 
     private sealed class NoRemainingArguments : IRemainingArguments

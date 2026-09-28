@@ -22,8 +22,8 @@ internal sealed class WorkspaceUnitOfWorkTest : RoslynTest
         var unitOfWork = Workspace.BeginChanges();
         await unitOfWork.Execute();
         Assert.That(
-            del: async () => await unitOfWork.Execute(),
-            expr: Throws.InstanceOf<InvalidOperationException>().With.Message.EqualTo("Changes have already been executed."));
+            async () => await unitOfWork.Execute(),
+            Throws.InstanceOf<InvalidOperationException>().With.Message.EqualTo("Changes have already been executed."));
     }
 
     [Test]

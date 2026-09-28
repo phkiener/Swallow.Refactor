@@ -31,7 +31,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore -p:Version="${{ github.ref_name }}"
 
       - name: Pack
-        run: dotnet pack --configuration Release --no-build --output ./pack/ -p:Version="${{ github.ref_name }}" src/**/*.csproj
+        run: dotnet pack --configuration Release --no-build --output ./pack/ -p:Version="${{ github.ref_name }}" src/*.proj
 
       - name: Setup NuGet token
         uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841

@@ -1,0 +1,37 @@
+<Project>
+  <Import Project="../Directory.Build.props" />
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration) == 'Release'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package metadata">
+    <PackageTags>swallow</PackageTags> <!-- TODO: Fill in information -->
+    <Description></Description> <!-- TODO: Fill in information -->
+
+    <Authors>Philipp Kiener</Authors>
+    <Copyright>2026 Philipp Kiener</Copyright> <!-- TODO: Fill in information -->
+    <PackageProjectUrl>https://github.com/phkiener/Swallow.Template</PackageProjectUrl> <!-- TODO: Fill in information -->
+
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/phkiener/Swallow.Template</RepositoryUrl> <!-- TODO: Fill in information -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup Label="Package files">
+    <None Include="$(MSBuildThisFileDirectory)../README.md" Pack="true" PackagePath="/" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)../LICENSE.txt" Pack="true" PackagePath="/" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)../icon.png" Pack="true" PackagePath="/" Visible="false" />
+  </ItemGroup>
+</Project>

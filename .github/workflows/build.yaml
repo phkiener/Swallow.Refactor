@@ -1,0 +1,39 @@
+name: Build and test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  # TODO: Set this to true if you need a workload
+  # If you do, also add workloadVersion to global.json
+  RESTORE_WORKLOAD: false
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68
+
+      - name: Restore workload
+        if: ${{ env.RESTORE_WORKLOAD == 'true' }}
+        run: dotnet workload restore
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Debug --no-restore
+
+      - name: Run tests
+        run: dotnet test --configuration Debug --no-restore --no-build

@@ -1,0 +1,44 @@
+name: Publish NuGet packages
+on:
+  release:
+    types: [created]
+
+env:
+  # TODO: Set this to true if you need a workload
+  RESTORE_WORKLOAD: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68
+
+      - name: Restore workload
+        if: ${{ env.RESTORE_WORKLOAD == 'true' }}
+        run: dotnet workload restore
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore -p:Version="${{ github.ref_name }}"
+
+      - name: Pack
+        run: dotnet pack --configuration Release --no-build --output ./pack/ -p:Version="${{ github.ref_name }}" src/**/*.csproj
+
+      - name: Setup NuGet token
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Push packages
+        run: dotnet nuget push ./pack/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

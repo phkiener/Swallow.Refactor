@@ -1,0 +1,18 @@
+# Build output
+[bB]in/
+[oO]bj/
+[pP]ack/
+[pP]ublish/
+[pP]ackages/
+TestResults/
+*.binlog
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+*.user
+*.DS_Store
+*.*~
